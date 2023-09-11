@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net6.0-windows;net4.8</TargetFrameworks>
+		<Nullable>enable</Nullable>
+		<UseWindowsForms>true</UseWindowsForms>
+		<LangVersion>preview</LangVersion>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<PackageIcon>logo.png</PackageIcon>
+		<Title>HEX文本编辑框</Title>
+		<RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+		<AssemblyName>ITLDG.HexTextBox</AssemblyName>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<Authors>ITLDG</Authors>
+		<VersionPrefix>1.0.0</VersionPrefix>
+		<Description>简易的文本编辑框</Description>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/itldg/ITLDG.HexTextBox</RepositoryUrl>
+		<PackageTags>HexTextBox</PackageTags>
+		<PackageProjectUrl>https://www.itldg.com</PackageProjectUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<RootNamespace>ITLDG</RootNamespace>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Include="README.md" Pack="true" PackagePath="\" />
+		<None Include="logo.png" Pack="true" PackagePath="\" />
+	</ItemGroup>
+	<Target Name="CopyPackage" AfterTargets="Pack">
+		<Copy SourceFiles="$(OutputPath)\$(PackageId).$(PackageVersion).nupkg" DestinationFolder="D:\Data\Code\Net\Nuget" />
+	</Target>
+</Project>
