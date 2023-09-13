@@ -9,6 +9,7 @@ namespace ITLDG
 {
     public partial class HexTextBox : TextBox
     {
+        string beforText = "";
         private char _Separator = ' ';
         [Description("HEX分隔符")]
         [Category("HEX")]
@@ -40,7 +41,10 @@ namespace ITLDG
             get { return _HexMode; }
             set
             {
+                string text = Text;
                 _HexMode = value;
+                Text = beforText;
+                beforText = text;
             }
         }
 
