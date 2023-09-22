@@ -84,15 +84,18 @@ namespace ITLDG
             // 如果按下了删除键并且删除的是空格，则同时删除其前面的一个字符
             if (e.KeyChar == (char)Keys.Back && this.SelectionStart > 0 && this.Text[this.SelectionStart - 1] == HexSeparator)
             {
-                lastSelectionStart = this.SelectionStart - 2;
-                this.SelectionStart = lastSelectionStart;
-                this.SelectionLength = 2;
+                this.SelectionStart -= 1;
+                this.SelectionLength += 1;
                 this.SelectedText = "";
+                lastSelectionStart = this.SelectionStart;
                 e.Handled = true;
             }
             else if (e.KeyChar == (char)Keys.Back)
             {
-                lastSelectionStart = this.SelectionStart - 1;
+                if (this.SelectionLength == 0)
+                {
+                    lastSelectionStart = this.SelectionStart - 1;
+                }
             }
 
             else if (IsValidHexChar(e.KeyChar))
@@ -167,6 +170,10 @@ namespace ITLDG
 
             // 更新TextBox的文本
             Text = spacedHex.ToString().ToUpper();
+            if (Text.Length > MaxLength)
+            {
+                Text = Text.Substring(0, MaxLength);
+            }
             if (lastSelectionStart >= Text.Length)
             {
                 SelectionStart = Text.Length;
