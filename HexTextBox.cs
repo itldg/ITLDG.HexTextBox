@@ -125,7 +125,7 @@ namespace ITLDG
                 int selectionStart = SelectionStart;
                 if (this.SelectionLength > 0) { this.SelectedText = ""; }
 
-                Text = Text.Insert(selectionStart, hexString);
+                Text = Text.Insert(SelectionStart, hexString);
                 if (this.SelectionStart > 0 && this.Text[this.SelectionStart - 1] == HexSeparator)
                 {
                     SelectionStart = selectionStart + hexString.Length;

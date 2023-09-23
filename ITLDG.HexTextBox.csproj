@@ -12,7 +12,7 @@
 		<AssemblyName>ITLDG.HexTextBox</AssemblyName>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<Authors>ITLDG</Authors>
-		<VersionPrefix>1.0.2</VersionPrefix>
+		<VersionPrefix>1.0.3</VersionPrefix>
 		<Description>简易的HEX文本编辑框</Description>
 		<RepositoryType>git</RepositoryType>
 		<RepositoryUrl>https://github.com/itldg/ITLDG.HexTextBox</RepositoryUrl>
